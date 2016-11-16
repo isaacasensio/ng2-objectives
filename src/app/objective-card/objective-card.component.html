@@ -1,23 +1,29 @@
-<div class="card">
+<form class="card" [formGroup]="objectiveForm">
   <header class="card-header">
     <p class="card-header-title">
       {{ objective.type | uppercase }}
     </p>
-    <!--<a class="card-header-icon">-->
-      <!--<i class="fa fa-angle-down"></i>-->
-    <!--</a>-->
   </header>
   <div class="card-content">
     <div class="content">
       <small>{{ targetSummary | uppercase }}</small>
       <progress class="progress is-large is-warning" [value]="objective.progress" [max]="objective.target">{{ progressProportion }}</progress>
-      <p><strong>By</strong> {{objective.date | date: 'dd/MM/yyyy'}}</p>
+      <div class="control is-horizontal">
+        <div class="control-label">
+          <label for="dateInput" class="label">By</label>
+        </div>
+        <div class="control is-grouped">
+          <input class="input" type="text" formControlName="date" id="dateInput">
+        </div>
+      </div>
       <p *ngIf="objective.completedOn">{{ objective.completedOn | date: 'dd/MM/yyyy' }}</p>
-      <p><strong>Notes</strong></p>
-      <p>{{objective.notes}}</p>
+      <div class="control">
+        <label for="notesTextarea" class="label">Notes</label>
+        <textarea class="textarea" formControlName="notes" id="notesTextarea"></textarea>
+      </div>
     </div>
   </div>
   <footer class="card-footer">
     <a class="button is-info">Update</a>
   </footer>
-</div>
+</form>

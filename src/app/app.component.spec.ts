@@ -1,14 +1,21 @@
+import {Component} from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import {ObjectiveCardComponent} from './objective-card/objective-card.component';
+
+@Component({
+  selector: 'spr-objective-card',
+  template: '<div></div>',
+  styles: [],
+})
+class ObjectiveCardComponentStub { }
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        ObjectiveCardComponent,
+        ObjectiveCardComponentStub,
       ],
     });
   });

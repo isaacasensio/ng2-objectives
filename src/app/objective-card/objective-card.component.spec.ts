@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ObjectiveCardComponent } from './objective-card.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 describe('ObjectiveCardComponent', () => {
   let component: ObjectiveCardComponent;
@@ -9,7 +10,8 @@ describe('ObjectiveCardComponent', () => {
   beforeEach(async(() => {
     TestBed
       .configureTestingModule({
-        declarations: [ObjectiveCardComponent]
+        declarations: [ObjectiveCardComponent],
+        imports: [ReactiveFormsModule],
       })
       .compileComponents();
   }));

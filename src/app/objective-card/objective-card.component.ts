@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'spr-objective-card',
@@ -7,11 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ObjectiveCardComponent implements OnInit {
 
+  objectiveForm: FormGroup;
+
   private objective = {
     type: 'Objective Type',
     target: 8,
     progress: 5,
-    date: new Date(),
+    date: '2016/09/12',
     completedOn: null,
     notes: 'Description of this thing',
   };
@@ -25,9 +31,17 @@ export class ObjectiveCardComponent implements OnInit {
     return `${progress * 100}%`;
   }
 
-  constructor() { }
+  constructor(private builder: FormBuilder) { }
 
   ngOnInit() {
+    this.objectiveForm = this.builder.group({
+      notes: [this.objective.notes],
+      date: [this.objective.date],
+    });
+    this.objectiveForm.valueChanges
+      .debounceTime(300)
+      .map(values => Object.assign(this.objective, values))
+      .subscribe(console.log);
   }
 
 }
