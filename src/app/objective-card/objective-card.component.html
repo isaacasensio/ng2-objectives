@@ -21,6 +21,12 @@
         <label for="notesTextarea" class="label">Notes</label>
         <textarea class="textarea" formControlName="notes" id="notesTextarea"></textarea>
       </div>
+      <div class="control" *ngFor="let person of objective.notify">
+        <span class="tag is-small notify-person">
+          {{person}}
+          <button class="delete" (click)="deletePerson(person)"></button>
+        </span>
+      </div>
     </div>
   </div>
   <footer class="card-footer">
