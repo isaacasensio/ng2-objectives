@@ -1,13 +1,14 @@
-/* tslint:disable:no-unused-variable */
-
 import { TestBed, async } from '@angular/core/testing';
+
 import { AppComponent } from './app.component';
+import {ObjectiveCardComponent} from './objective-card/objective-card.component';
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        ObjectiveCardComponent,
       ],
     });
   });
@@ -21,13 +22,13 @@ describe('AppComponent', () => {
   it(`should have as title 'spr works!'`, async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('spr works!');
+    expect(app.title).toEqual('Objectives');
   }));
 
   it('should render title in a h1 tag', async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('spr works!');
+    expect(compiled.querySelector('h1').textContent).toContain('Objectives');
   }));
 });

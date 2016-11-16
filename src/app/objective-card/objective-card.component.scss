@@ -1,0 +1,19 @@
+@import '../../styles/colors';
+
+.card{
+  background-color: $body-background;
+
+  .card-header {
+    border-bottom: 1px solid $border;
+    box-shadow: none;
+  }
+
+  .card-content {
+    color: white;
+  }
+
+  .card-footer {
+    justify-content: flex-end;
+    padding: 10px;
+  }
+}
